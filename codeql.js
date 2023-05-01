@@ -14,7 +14,10 @@ export default function(hljs) {
     'predicate',
     'or',
     'exists',
-    'none'
+    'none',
+    'from',
+    'where',
+    'select'
   ];
   
   const KEYWORDS = {
