@@ -5,6 +5,8 @@ Category: common, enterprise
 Website: https://codeql.github.com
 */
 
+
+
 export default function(hljs) {
   const regex = hljs.regex;
   const RESERVED_WORDS = [
@@ -19,6 +21,17 @@ export default function(hljs) {
     'where',
     'select'
   ];
+  
+  const BUILT_INS = [
+    'this'      
+  ];   
+  const LITERALS = [ 
+    'true', 'false'
+  ];                        
+  const TYPES = [                          
+    'boolean',
+    'int'                   
+  ]   
   
   const KEYWORDS = {
     $pattern: /[A-Za-z]\w+|__\w+__/,
