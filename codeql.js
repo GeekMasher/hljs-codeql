@@ -9,19 +9,23 @@ Website: https://codeql.github.com
 
 export default function(hljs) {
   const regex = hljs.regex;
-  const RESERVED_WORDS = [
-    'and',
-    'any',
-    'class',
-    'predicate',
-    'or',
+  const RESERVED_WORDS = [                                                                                                                                                                                 [52/988]
+    'and',           
+    'any',   
+    'or',                                                                                                
+    'none',                 
+    'import',             
+    'in',     
+    'class', 
+    'extends',                    
+    'instanceof',                
     'exists',
-    'none',
+    'predicate',
     'from',
     'where',
-    'select'
+    'select',                  
   ];
-  
+
   const BUILT_INS = [
     'this'      
   ];   
