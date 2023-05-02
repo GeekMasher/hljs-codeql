@@ -9,34 +9,34 @@ Website: https://codeql.github.com
 
 export default function(hljs) {
   const regex = hljs.regex;
-  const RESERVED_WORDS = [                                                                                                                                                                                 [52/988]
-    'and',           
-    'any',   
-    'or',                                                                                                
-    'none',                 
-    'import',             
-    'in',     
-    'class', 
-    'extends',                    
-    'instanceof',                
+  const RESERVED_WORDS = [
+    'and',
+    'any',
+    'or',
+    'none',
+    'import',
+    'in',
+    'class',
+    'extends',
+    'instanceof',
     'exists',
     'predicate',
     'from',
     'where',
-    'select',                  
+    'select',
   ];
-
+ 
   const BUILT_INS = [
-    'this'      
-  ];   
-  const LITERALS = [ 
+    'this',
+  ];
+  const LITERALS = [
     'true', 'false'
-  ];                        
-  const TYPES = [                          
+  ];
+  const TYPES = [
     'boolean',
-    'int'                   
-  ]   
-  
+    'int'
+  ]
+
   const KEYWORDS = {
     $pattern: /[A-Za-z]\w+|__\w+__/,
     keyword: RESERVED_WORDS,
@@ -56,6 +56,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     illegal: /(<\/|\?)|=>/,
     contains: [
+      // Comments
       hljs.COMMENT(
         '/\\*\\*',
         '\\*/',
@@ -74,8 +75,11 @@ export default function(hljs) {
           ]
         }
       ),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      // Imports
       {
-        begin: /import semmel\.[a-z]+\./,
+        begin: /import semmle\.[a-z]+\./,
         keywords: "import",
         relevance: 2
       },
